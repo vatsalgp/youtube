@@ -11,7 +11,8 @@ const VideoDetail = ({ video }) => {
                     src={"https://www.youtube.com/embed/" + video.id.videoId}
                     title="Video Player"
                     frameborder="0"
-                    allowfullscreen
+                    allowfullscreen="1"
+                    allow="picture-in-picture"
                 />
             </div>
             <div className="ui segment">
