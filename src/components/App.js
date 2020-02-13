@@ -9,14 +9,7 @@ class App extends React.Component {
 
   onFormSubmit = async Term => {
     const response = await Youtube.get("/search", { params: { q: Term } });
-    let videos = response.data.items;
-    let nv = [];
-    for (let video of videos) {
-      if (video.id.kind === "youtube#video") {
-        nv.push(video);
-      }
-    }
-    videos = nv;
+    let videos = response.data.items.filter(video => video.id.kind === "youtube#video");
     this.setState({
       videos,
       selectedVideo: videos[0]
